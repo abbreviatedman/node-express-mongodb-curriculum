@@ -1,0 +1,12 @@
+    <h1><%= headline %></h1>
+    <p><%= message %></p>
+    <% links.forEach((link) => { %>
+      <a
+        hx-get="<%= link.href %>"
+        hx-target="main"
+        hx-swap="innerHTML"
+      >
+        <%= link.text %>
+      </a>
+    <% }); %>
+</html>

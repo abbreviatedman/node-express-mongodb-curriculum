@@ -1,0 +1,30 @@
+<button hx-get="/add-button" hx-target="#add-area">Cancel</button>
+<form hx-post="/recipes" hx-target="main" hx-swap="innerHTML">
+  <label>Recipe Title:
+    <input type="text" name="title" required />
+  </label>
+
+  <label>Cook Time (in minutes):
+    <input type="number" name="cookingTime" required />
+  </label>
+
+  <label>Prep Time (in minutes):
+    <input type="number" name="prepTime" required />
+  </label>
+
+  <label>Servings:
+    <input type="number" name="servings" required />
+  </label>
+
+  <label>Ingredients:
+    <input type="text" name="ingredients" />
+  </label>
+
+  <label>Instructions:
+    <input type="text" name="instructions" />
+  </label>
+
+  <button type="submit">Add Recipe</button>
+</form>
+
+

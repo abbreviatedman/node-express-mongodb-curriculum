@@ -1,0 +1,19 @@
+<section id="recipes">
+  <h1>Recipe List</h1>
+  <div id="add-area">
+    <%- include('add-button') %>
+  </div>
+  <ul>
+    <% recipes.forEach(recipe => { %>
+      <li
+	class="recipe-item"
+	hx-get="/recipes/<%= recipe._id %>"
+	hx-target="#recipes"
+	hx-swap="outerHTML"
+      >
+	<h2><%= recipe.title %></h2>
+	<p class="total-time">Total Time: <%= recipe.prepTime + recipe.cookingTime %> minutes</p>
+      </li>
+    <% }); %>
+  </ul>
+</section>
