@@ -44,7 +44,7 @@ What you will need to get started is:
 
 15. Click "Create Web Service" and wait for your project to build.
 
-16. Once it's done, click on the "logs" tab on the left side of the page. You should see in the logs that MongoDB failed to connect. This is because Render's web services are at a different IP address then your local machine, and MongoDB Atlas is blocking the connection.
+16. Once it's done, click on the "logs" tab on the left side of the page. You should see in the logs that MongoDB failed to connect. This is because Render's web services are at a different IP address.
 
 If you click on the white `Connect` drop down option next to the blue `Manual Deploy` button, select `Outbound`, you should see a list of potential IP addresses that Render will choose from.
 

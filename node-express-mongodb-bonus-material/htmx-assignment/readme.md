@@ -28,7 +28,7 @@ Reload the page to confirm this works.
 **Notes**:
 
 - It might _seem_ helpful to re-use the `/` route handler for when the user clicks the Recipes navbar item, since that route _does_ render the recipes. But the `/` route handler returns an _entire page_, which you do not want in this instance--it's more efficient to just send back the recipes, so only the `recipes.ejs` needs to be re-rendered. The `/recipes`  route handler should be replacing the `main` tag with the `recipes.ejs` content _only_.
-- While the `a` tags do have an `href` attribute, HTMX will handle the navigation. They are there for styling and accessibility.
+- While the `a` tags do have an `href` attribute, but HTMX will handle the navigation. They are there for styling and accessibility.
 
 ### Step 3: A Single Recipe View
 
