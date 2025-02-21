@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/htmx.org"></script>
+    <title>Recipe List</title>
+    <style>
+        body { 
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #3f51b5;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar h1 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar li {
+            margin: 0 10px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+	    cursor: pointer;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        a {
+	    text-decoration: none;
+	    font-weight: bold;
+	    cursor: pointer;
+	    color: #3f51b5;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #3f51b5;
+            margin-bottom: 20px;
+        }
+
+        #recipes ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .recipe-item {
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+            margin-bottom: 20px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .recipe-item:hover {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            font-size: 1.5em;
+            margin: 0 0 10px;
+            color: #333333;
+        }
+
+        .total-time {
+            font-weight: bold;
+            color: #666666;
+        }
+
+	label {
+	    display: block;
+	}
+
+    </style>
+</head>
+<body>
+  <nav class="navbar">
+    <h1>Noble Desktop Recipe App</h1>
+    <ul>
+      <li>
+	<a
+	  href="/recipes"
+	  hx-get="/recipes"
+	  hx-target="main"
+	>
+	  Recipes
+	</a>
+      </li>
+
+      <li>
+	<a
+	  href="/about"
+	  hx-get="/about"
+	  hx-target="main"
+	>
+	  About
+	</a>
+      </li>
+
+      <li>
+	<a
+	  href="/contact"
+	  hx-get="/contact"
+	  hx-target="main"
+	>
+	  Contact
+	</a>
+      </li>
+    </ul>
+  </nav>
+  <main>
+    <%- include("recipes", {recipes: recipes}) %>
+  </main>
+</body>
+</html>

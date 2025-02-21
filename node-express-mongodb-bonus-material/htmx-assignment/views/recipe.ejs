@@ -1,0 +1,34 @@
+<a
+  href="/"
+  hx-get="/recipes"
+  hx-target="main"
+  hx-swap="innerHTML"
+  class="back"
+>
+  🔙 Back to the recipe list
+</a>
+
+<h1><%= recipe.title %></h1>
+<p>Cooking time: <%= recipe.cookingTime %></p>
+<p>Prep time: <%= recipe.prepTime %></p>
+<p>Serves: <%= recipe.servings %></p>
+<h3>Ingredients</h3>
+<ul>
+  <% recipe.ingredients.forEach((ingredient) => { %>
+    <li><%= ingredient %></li>
+  <% }) %>
+</ul>
+<h3>Instructions</h3>
+<ol>
+  <% recipe.instructions.forEach((instruction) => { %>
+    <li><%= instruction %></li>
+  <% }) %>
+</ol>
+<div>
+  <button
+    hx-delete="/recipes/<%= recipe._id %>"
+    hx-target="main"
+    hx-swap="innerHTML"
+  >
+  Remove recipe from the recipe book.
+</div>
