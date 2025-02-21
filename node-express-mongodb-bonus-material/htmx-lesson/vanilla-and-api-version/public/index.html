@@ -58,27 +58,27 @@
               method: 'POST',
               headers: {
 		'Content-Type': 'application/json'
-              },
+	      },
 
-              body: JSON.stringify({ text: newText })
-            });
+	      body: JSON.stringify({ text: newText })
+	    });
 
-            const todo = await response.json();
-            addTodoToList(todo);
-          } catch (error) {
-            console.error('Error adding todo:', error);
-          }
+	    const todo = await response.json();
+	    addTodoToList(todo);
+	  } catch (error) {
+	    console.error('Error adding todo:', error);
+	  }
 	});
 
 	function addTodoToList(todo) {
-          const todoItem = document.createElement('li');
-          todoItem.id = `todo-container-${todo._id}`;
-          todoItem.className = `todo-item ${todo.isComplete ? 'completed' : ''}`;
-          
-          const todoText = document.createElement('span');
-          todoText.textContent = todo.text;
-          todoText.onclick = () => toggleTodoStatus(todo._id, todo.isComplete);
-          todoItem.appendChild(todoText);
+	  const todoItem = document.createElement('li');
+	  todoItem.id = `todo-container-${todo._id}`;
+	  todoItem.className = `todo-item ${todo.isComplete ? 'completed' : ''}`;
+	  
+	  const todoText = document.createElement('span');
+	  todoText.textContent = todo.text;
+	  todoText.onclick = () => toggleTodoStatus(todo._id, todo.isComplete);
+	  todoItem.appendChild(todoText);
 
 	  const buttonsContainer = document.createElement('div');
 	  todoItem.appendChild(buttonsContainer);
@@ -97,12 +97,12 @@
 	}
 
 	async function toggleTodoStatus(todoId, currentStatus) {
-          try {
-            const response = await fetch(`/toggle/${todoId}`, {
-              method: 'PATCH',
-              headers: {
+	  try {
+	    const response = await fetch(`/toggle/${todoId}`, {
+	      method: 'PATCH',
+	      headers: {
 		'Content-Type': 'application/json'
-              },
+	      },
 
               body: JSON.stringify({ isComplete: !currentStatus })
             });
@@ -116,10 +116,10 @@
 	}
 
 	async function deleteTodoItem(todoId) {
-          try {
-            await fetch(`/delete/${todoId}`, {
-              method: 'DELETE'
-            });
+	  try {
+	    await fetch(`/delete/${todoId}`, {
+	      method: 'DELETE'
+	    });
 
             const todoItem = document.querySelector(`#todo-container-${todoId}`);
             todoItem.remove();
@@ -145,12 +145,12 @@
 	}
 
 	async function saveTodoText(todoId, newText) {
-          try {
-            const response = await fetch(`/update-text/${todoId}`, {
-              method: 'PATCH',
-              headers: {
+	  try {
+	    const response = await fetch(`/update-text/${todoId}`, {
+	      method: 'PATCH',
+	      headers: {
 		'Content-Type': 'application/json'
-              },
+	      },
 
               body: JSON.stringify({ text: newText })
             });
@@ -176,9 +176,9 @@
 	    deleteButton.textContent = 'Delete';
             deleteButton.onclick = () => deleteTodoItem(updatedTodo._id);
 	    buttonsContainer.appendChild(deleteButton);
-          } catch (error) {
-            console.error('Error saving todo text:', error);
-          }
+	  } catch (error) {
+	    console.error('Error saving todo text:', error);
+	  }
 	}
 
 	fetchInitialTodos();
