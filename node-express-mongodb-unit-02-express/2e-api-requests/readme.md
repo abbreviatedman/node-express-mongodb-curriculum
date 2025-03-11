@@ -183,11 +183,11 @@ To have an understanding as to what an asynchronous function is and what a promi
 ```js
 async function orderingMcDonalds() {
     // When you make an order, you get back a receipt. This is a promise that you will get your food when it's done
-    let myOrder = new Promise((resolve, reject) => {
+    const myOrder = new Promise((resolve, reject) => {
         setTimeout(() => resolve({mcDouble: 1, mcChicken: 1, nuggets: 2, drinks: 2}), 3000);
     });
 
-    let receipt = await myOrder; // wait until the promise resolves (*)
+    const receipt = await myOrder; // wait until the promise resolves (*)
 
     console.log(receipt); // {mcDouble: 1, mcChicken: 1, nuggets: 2, drinks: 2}
 }
@@ -286,6 +286,7 @@ app.get("/:query", async (req, res) => {
         });
         // If there's an error, we send that back instead
     } catch (err) {
+		console.log(error);
         res.status(500).json({
             message: "error",
             payload: err,

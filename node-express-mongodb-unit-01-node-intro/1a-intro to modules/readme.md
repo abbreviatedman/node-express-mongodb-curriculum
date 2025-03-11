@@ -107,3 +107,4 @@ Modularizing your code means decomposing a monolithic piece of logic or function
 - It reduces redundancy and increases efficiency by reusing and extending already implemented pieces of code.
 - It is easier to unit test and debug.
 - It saves you time and resources – in the short run as well as the long run.
+

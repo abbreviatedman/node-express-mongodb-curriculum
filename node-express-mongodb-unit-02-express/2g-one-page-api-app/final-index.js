@@ -26,7 +26,7 @@ app.use(logger("dev"));
 */
 // You will of course write the commented out version in YOUR final version!
 // const indexRouter = require("./routes/indexRouter");
-const indexRouter = require("./routes/FINAL-Router");
+const indexRouter = require("./routes/final-Router");
 
 /*
     5. Set up the URL routes to connect to the router
